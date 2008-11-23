@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/ClipsFeature_1.0.0.jar" id="ClipsFeature" version="1.0.0">
+      <category name="Clipboard"/>
+   </feature>
+   <category-def name="Clipboard" label="Clipboard"/>
+</site>
