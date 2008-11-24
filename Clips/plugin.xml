@@ -86,6 +86,11 @@
             name="Copy to clips"/>
       <command
             categoryId="Clips.category"
+            defaultHandler="clips.model.ClipsClipboardCopyCommmand"
+            id="Clips.clipboardCopyCommand"
+            name="Copy clipboard to clips"/>
+      <command
+            categoryId="Clips.category"
             defaultHandler="clips.model.ClipsPasteCommmand"
             id="Clips.pasteCommand"
             name="Paste from clips"/>
@@ -118,9 +123,14 @@
             sequence="M2+M3+X X"/>
       <key
             commandId="Clips.copyCommand"
-            contextId="org.eclipse.ui.contexts.window"
+            contextId="org.eclipse.ui.textEditorScope"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
             sequence="M2+M3+X C"/>
+      <key
+            commandId="Clips.clipboardCopyCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M2+M3+X B"/>
       <key
             commandId="Clips.pasteCommand"
             contextId="org.eclipse.ui.textEditorScope"

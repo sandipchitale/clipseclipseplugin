@@ -45,11 +45,6 @@ public class ClipsCopyCommmand implements IHandler {
 				}
 			}
 		}
-		Clipboard clipboard = new Clipboard(activeWorkbenchWindow.getShell().getDisplay());
-		Object contents = clipboard.getContents(TextTransfer.getInstance());
-		if (contents instanceof String) {
-			ClipsModel.getINSTANCE().add((String) contents);
-		}
 		return null;
 	}
 
@@ -65,11 +60,6 @@ public class ClipsCopyCommmand implements IHandler {
 			if (adapter instanceof Control) {
 				return true;
 			}
-		}
-		Clipboard clipboard = new Clipboard(activeWorkbenchWindow.getShell().getDisplay());
-		Object contents = clipboard.getContents(TextTransfer.getInstance());
-		if (contents instanceof String) {
-			return true;
 		}
 		return false;
 	}
