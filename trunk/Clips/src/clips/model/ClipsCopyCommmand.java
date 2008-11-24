@@ -66,6 +66,11 @@ public class ClipsCopyCommmand implements IHandler {
 				return true;
 			}
 		}
+		Clipboard clipboard = new Clipboard(activeWorkbenchWindow.getShell().getDisplay());
+		Object contents = clipboard.getContents(TextTransfer.getInstance());
+		if (contents instanceof String) {
+			return true;
+		}
 		return false;
 	}
 

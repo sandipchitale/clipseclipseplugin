@@ -115,32 +115,32 @@
             commandId="Clips.cutCommand"
             contextId="org.eclipse.ui.textEditorScope"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-            sequence="M2+M3+T"/>
+            sequence="M2+M3+X X"/>
       <key
             commandId="Clips.copyCommand"
-            contextId="org.eclipse.ui.textEditorScope"
+            contextId="org.eclipse.ui.contexts.window"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-            sequence="M2+M3+C"/>
+            sequence="M2+M3+X C"/>
       <key
             commandId="Clips.pasteCommand"
             contextId="org.eclipse.ui.textEditorScope"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-            sequence="M2+M3+V"/>
+            sequence="M2+M3+X V"/>
       <key
             commandId="Clips.rotateUpCommand"
-            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            contextId="org.eclipse.ui.contexts.window"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-            sequence="M2+M3+("/>
+            sequence="M2+M3+X ("/>
       <key
             commandId="Clips.rotateDownCommand"
-            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            contextId="org.eclipse.ui.contexts.window"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-            sequence="M2+M3+)"/>
+            sequence="M2+M3+X )"/>
       <key
             commandId="Clips.swapCommand"
-            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            contextId="org.eclipse.ui.contexts.window"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-            sequence="M2+M3+^"/>
+            sequence="M2+M3+X ^"/>
    </extension>
 
 </plugin>
