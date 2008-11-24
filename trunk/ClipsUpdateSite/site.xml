@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
+   <description url="http://clipseclipseplugin.googlecode.com/svn/trunk/ClipsUpdateSite/">
+      Clips feature
+   </description>
    <feature url="features/ClipsFeature_1.0.0.jar" id="ClipsFeature" version="1.0.0">
       <category name="Clipboard"/>
    </feature>
