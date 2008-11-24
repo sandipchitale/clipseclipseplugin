@@ -3,7 +3,7 @@
 <repository name='file:/home/schitale/professional/eclipse/workspace/ClipsUpdateSite/ - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'>
   <properties size='2'>
     <property name='p2.compressed' value='false'/>
-    <property name='p2.timestamp' value='1227503959327'/>
+    <property name='p2.timestamp' value='1227565755630'/>
   </properties>
   <units size='10'>
     <unit id='ClipsFeature.feature.jar' version='1.0.0'>
