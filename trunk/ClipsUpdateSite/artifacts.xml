@@ -3,18 +3,25 @@
 <repository name='file:/home/schitale/professional/eclipse/workspace/ClipsUpdateSite/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
   <properties size='2'>
     <property name='p2.compressed' value='false'/>
-    <property name='p2.timestamp' value='1227566723200'/>
+    <property name='p2.timestamp' value='1227685920180'/>
   </properties>
   <mappings size='3'>
     <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
     <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
     <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
   </mappings>
-  <artifacts size='4'>
+  <artifacts size='6'>
     <artifact classifier='osgi.bundle' id='Clips' version='1.0.6'>
       <properties size='3'>
         <property name='artifact.size' value='28115'/>
         <property name='download.size' value='28115'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='Clips' version='1.0.4'>
+      <properties size='3'>
+        <property name='artifact.size' value='27159'/>
+        <property name='download.size' value='27159'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
@@ -25,10 +32,16 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='Clips' version='1.0.4'>
+    <artifact classifier='org.eclipse.update.feature' id='ClipsFeature' version='1.0.0'>
+      <properties size='2'>
+        <property name='artifact.size' value='699'/>
+        <property name='download.size' value='699'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='Clips' version='1.0.7'>
       <properties size='3'>
-        <property name='artifact.size' value='27159'/>
-        <property name='download.size' value='27159'/>
+        <property name='artifact.size' value='31113'/>
+        <property name='download.size' value='31113'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>

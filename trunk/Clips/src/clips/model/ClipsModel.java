@@ -19,6 +19,8 @@ import org.eclipse.swt.dnd.TextTransfer;
 import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.ui.PlatformUI;
 
+import clips.Activator;
+
 public class ClipsModel implements IStructuredContentProvider, ITreeContentProvider {
 
 	
@@ -197,6 +199,10 @@ public class ClipsModel implements IStructuredContentProvider, ITreeContentProvi
 		}
 		clips.add((index == -1 ? clips.size() : index), selection);
 		copyToClipboard(selection);
+		int maxClipsCount = Activator.getDefault().getMaxClipsCount();
+		while (clips.size() > maxClipsCount) {
+		    clips.remove(maxClipsCount);
+		}
 		fireChange();
 	}
 	
