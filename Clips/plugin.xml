@@ -152,5 +152,14 @@
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
             sequence="M2+M3+X ^"/>
    </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.eclipse.ui.preferencePages.Workbench"
+            class="clips.preferences.ClipsPreferencesPage"
+            id="Clips.page"
+            name="Clips">
+      </page>
+   </extension>
 
 </plugin>

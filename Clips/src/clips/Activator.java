@@ -1,5 +1,6 @@
 package clips;
 
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -14,6 +15,12 @@ public class Activator extends AbstractUIPlugin {
 	public static final String PLUGIN_ID = "Clips";
 	
 	public static final String TEXT = "icons/text.gif";
+	
+	public static final String AUTO_CLIP_CUT_COPY = "autoClipCutAndCopy";
+	public static final String MAX_CLIPS_COUNT = "maxClips";
+	
+	private static final boolean defaultAUTO_CLIP_CUT_COPY = false;
+	private static final int defaultMAX_CLIPS_COUNT = 64;
 
 	// The shared instance
 	private static Activator plugin;
@@ -49,6 +56,20 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public static Activator getDefault() {
 		return plugin;
+	}
+	
+    @Override
+    protected void initializeDefaultPreferences(IPreferenceStore store) {
+	    store.setDefault(AUTO_CLIP_CUT_COPY, defaultAUTO_CLIP_CUT_COPY);
+	    store.setDefault(MAX_CLIPS_COUNT, defaultMAX_CLIPS_COUNT);
+    }
+	
+	public boolean isAutoClipCutCopy() {
+	    return getPreferenceStore().getBoolean(AUTO_CLIP_CUT_COPY);
+	}
+	
+	public int getMaxClipsCount() {
+	    return getPreferenceStore().getInt(MAX_CLIPS_COUNT);
 	}
 	
 	@Override

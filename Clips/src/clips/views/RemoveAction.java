@@ -22,7 +22,8 @@ public class RemoveAction implements IViewActionDelegate {
 		this.view = (ClipsView) view;
 	}
 
-	public void run(IAction action) {
+	@SuppressWarnings("unchecked")
+    public void run(IAction action) {
 		TreeViewer viewer = view.getViewer();
 		ISelection selection = viewer.getSelection();
 		if (selection instanceof IStructuredSelection) {
