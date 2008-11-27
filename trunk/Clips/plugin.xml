@@ -120,37 +120,37 @@
             commandId="Clips.cutCommand"
             contextId="org.eclipse.ui.textEditorScope"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-            sequence="M2+M3+X X"/>
+            sequence="M2+M3+X M2+M3+X"/>
       <key
             commandId="Clips.copyCommand"
             contextId="org.eclipse.ui.textEditorScope"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-            sequence="M2+M3+X C"/>
+            sequence="M2+M3+X M2+M3+C"/>
       <key
             commandId="Clips.clipboardCopyCommand"
             contextId="org.eclipse.ui.contexts.window"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-            sequence="M2+M3+X B"/>
+            sequence="M2+M3+X M2+M3+B"/>
       <key
             commandId="Clips.pasteCommand"
             contextId="org.eclipse.ui.textEditorScope"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-            sequence="M2+M3+X V"/>
+            sequence="M2+M3+X M2+M3+V"/>
       <key
             commandId="Clips.rotateUpCommand"
             contextId="org.eclipse.ui.contexts.window"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-            sequence="M2+M3+X ("/>
+            sequence="M2+M3+X M2+M3+9"/>
       <key
             commandId="Clips.rotateDownCommand"
             contextId="org.eclipse.ui.contexts.window"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-            sequence="M2+M3+X )"/>
+            sequence="M2+M3+X M2+M3+0"/>
       <key
             commandId="Clips.swapCommand"
             contextId="org.eclipse.ui.contexts.window"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-            sequence="M2+M3+X ^"/>
+            sequence="M2+M3+X M2+M3+6"/>
    </extension>
    <extension
          point="org.eclipse.ui.preferencePages">
