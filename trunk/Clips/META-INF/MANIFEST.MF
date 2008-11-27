@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Clips Plug-in
 Bundle-SymbolicName: Clips;singleton:=true
-Bundle-Version: 1.0.9
+Bundle-Version: 1.0.10
 Bundle-Activator: clips.Activator
 Bundle-Vendor: Sandip Chitale
 Bundle-LocalRequire-Bundle: org.eclipse.ui,
