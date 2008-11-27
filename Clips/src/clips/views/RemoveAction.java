@@ -14,35 +14,41 @@ import org.eclipse.ui.IViewPart;
 
 import clips.model.ClipsModel;
 
+/**
+ * This action removes the clips selected in the Clips view.
+ *
+ * @author Sandip V. Chitale
+ *
+ */
 public class RemoveAction implements IViewActionDelegate {
 
-	private ClipsView view;
+    private ClipsView view;
 
-	public void init(IViewPart view) {
-		this.view = (ClipsView) view;
-	}
+    public void init(IViewPart view) {
+        this.view = (ClipsView) view;
+    }
 
-	@SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")
     public void run(IAction action) {
-		TreeViewer viewer = view.getViewer();
-		ISelection selection = viewer.getSelection();
-		if (selection instanceof IStructuredSelection) {
-			IStructuredSelection structuredSelection = (ITreeSelection) selection;
-			Iterator iterator = structuredSelection.iterator();
-			List<String> clipsToRemove = new LinkedList<String>();
-			while (iterator.hasNext()) {
-				Object item = iterator.next();
-				if (item instanceof String) {
-					clipsToRemove.add((String) item);
-				}
-			}
-			if (clipsToRemove.size() > 0) {
-				ClipsModel.getINSTANCE().remove(clipsToRemove);
-			}
-		}
-	}
+        TreeViewer viewer = view.getViewer();
+        ISelection selection = viewer.getSelection();
+        if (selection instanceof IStructuredSelection) {
+            IStructuredSelection structuredSelection = (ITreeSelection) selection;
+            Iterator iterator = structuredSelection.iterator();
+            List<String> clipsToRemove = new LinkedList<String>();
+            while (iterator.hasNext()) {
+                Object item = iterator.next();
+                if (item instanceof String) {
+                    clipsToRemove.add((String) item);
+                }
+            }
+            if (clipsToRemove.size() > 0) {
+                ClipsModel.getINSTANCE().remove(clipsToRemove);
+            }
+        }
+    }
 
-	public void selectionChanged(IAction action, ISelection selection) {
-	}
+    public void selectionChanged(IAction action, ISelection selection) {
+    }
 
 }

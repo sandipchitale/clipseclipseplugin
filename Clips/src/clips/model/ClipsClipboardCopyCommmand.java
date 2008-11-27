@@ -1,4 +1,5 @@
 package clips.model;
+
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
@@ -8,43 +9,56 @@ import org.eclipse.swt.dnd.TextTransfer;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
-
+/**
+ * This command copies the Clipboard text to Clips model. Th text in the
+ * Clipboard may have been copied from anywhere.
+ *
+ * @author Sandip V. Chitale
+ *
+ */
 public class ClipsClipboardCopyCommmand implements IHandler {
 
-	public void addHandlerListener(IHandlerListener handlerListener) {}
+    public void addHandlerListener(IHandlerListener handlerListener) {
+    }
 
-	public void dispose() {}
+    public void dispose() {
+    }
 
-	public Object execute(ExecutionEvent event) throws ExecutionException {
-		IWorkbenchWindow activeWorkbenchWindow = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-		if (activeWorkbenchWindow == null) {
-			return null;
-		}
-		Clipboard clipboard = new Clipboard(activeWorkbenchWindow.getShell().getDisplay());
-		Object contents = clipboard.getContents(TextTransfer.getInstance());
-		if (contents instanceof String) {
-			ClipsModel.getINSTANCE().add((String) contents);
-		}
-		return null;
-	}
+    public Object execute(ExecutionEvent event) throws ExecutionException {
+        IWorkbenchWindow activeWorkbenchWindow = PlatformUI.getWorkbench()
+                .getActiveWorkbenchWindow();
+        if (activeWorkbenchWindow == null) {
+            return null;
+        }
+        Clipboard clipboard = new Clipboard(activeWorkbenchWindow.getShell()
+                .getDisplay());
+        Object contents = clipboard.getContents(TextTransfer.getInstance());
+        if (contents instanceof String) {
+            ClipsModel.getINSTANCE().add((String) contents);
+        }
+        return null;
+    }
 
-	public boolean isEnabled() {
-		IWorkbenchWindow activeWorkbenchWindow = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-		if (activeWorkbenchWindow == null) {
-			return false;
-		}
-		Clipboard clipboard = new Clipboard(activeWorkbenchWindow.getShell().getDisplay());
-		Object contents = clipboard.getContents(TextTransfer.getInstance());
-		if (contents instanceof String) {
-			return true;
-		}
-		return false;
-	}
+    public boolean isEnabled() {
+        IWorkbenchWindow activeWorkbenchWindow = PlatformUI.getWorkbench()
+                .getActiveWorkbenchWindow();
+        if (activeWorkbenchWindow == null) {
+            return false;
+        }
+        Clipboard clipboard = new Clipboard(activeWorkbenchWindow.getShell()
+                .getDisplay());
+        Object contents = clipboard.getContents(TextTransfer.getInstance());
+        if (contents instanceof String) {
+            return true;
+        }
+        return false;
+    }
 
-	public boolean isHandled() {
-		return isEnabled();
-	}
+    public boolean isHandled() {
+        return isEnabled();
+    }
 
-	public void removeHandlerListener(IHandlerListener handlerListener) {}
+    public void removeHandlerListener(IHandlerListener handlerListener) {
+    }
 
 }

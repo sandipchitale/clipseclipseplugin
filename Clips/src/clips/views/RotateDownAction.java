@@ -7,16 +7,23 @@ import org.eclipse.ui.IViewPart;
 
 import clips.model.ClipsModel;
 
+/**
+ * This command rotates the clips down.
+ *
+ * @author Sandip V. Chitale
+ *
+ */
 public class RotateDownAction implements IViewActionDelegate {
 
-	public void init(IViewPart view) {}
+    public void init(IViewPart view) {
+    }
 
-	public void run(IAction action) {
-		ClipsModel.getINSTANCE().rotateDown();
-	}
+    public void run(IAction action) {
+        ClipsModel.getINSTANCE().rotateDown();
+    }
 
-	public void selectionChanged(IAction action, ISelection selection) {
-		action.setEnabled(ClipsModel.getINSTANCE().get().length > 1);
-	}
+    public void selectionChanged(IAction action, ISelection selection) {
+        action.setEnabled(ClipsModel.getINSTANCE().get().length > 1);
+    }
 
 }

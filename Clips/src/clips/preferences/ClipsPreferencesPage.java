@@ -8,6 +8,12 @@ import org.eclipse.ui.IWorkbenchPreferencePage;
 
 import clips.Activator;
 
+/**
+ * This page manages the Clips plug-in preferences .
+ *
+ * @author Sandip V. Chitale
+ *
+ */
 public class ClipsPreferencesPage extends FieldEditorPreferencePage implements
         IWorkbenchPreferencePage {
 
@@ -18,7 +24,7 @@ public class ClipsPreferencesPage extends FieldEditorPreferencePage implements
     public void init(IWorkbench workbench) {
         setPreferenceStore(Activator.getDefault().getPreferenceStore());
     }
-    
+
     @Override
     protected void createFieldEditors() {
         BooleanFieldEditor booleanFieldEditor = new BooleanFieldEditor(
