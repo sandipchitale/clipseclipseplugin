@@ -103,7 +103,7 @@ public class ClipsView extends ViewPart {
 					}
 					int caretOffset = styledText.getCaretOffset();
 					styledText.insert(text);
-					styledText.setCaretOffset(caretOffset + text.length());
+					styledText.setSelection(caretOffset + text.length(), caretOffset);
 				}
 			}
 		}

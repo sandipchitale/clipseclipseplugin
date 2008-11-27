@@ -1,5 +1,9 @@
 package clips.model;
 
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.atomic.AtomicInteger;
+
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
@@ -16,13 +20,29 @@ public class ClipsPasteCommmand implements IHandler {
 	public void addHandlerListener(IHandlerListener handlerListener) {}
 
 	public void dispose() {}
+	
+	private int candidateInsertIndex = 0;
+	private long lastPasteTimeInMillis = -1L;
 
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		IWorkbenchWindow activeWorkbenchWindow = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
 		if (activeWorkbenchWindow == null) {
 			return null;
 		}
-		String textToInsert = ClipsModel.getINSTANCE().peek();
+		String[] clips = ClipsModel.getINSTANCE().get();
+		if (clips.length == 0) {
+		    return null;
+		}
+		
+		long currentTimeMillis = System.currentTimeMillis();
+		if ((lastPasteTimeInMillis == -1) || (currentTimeMillis - lastPasteTimeInMillis) > 1000L) {
+	        candidateInsertIndex = 0;
+		} else {
+		    candidateInsertIndex++;
+		}
+		lastPasteTimeInMillis = currentTimeMillis;
+		
+		String textToInsert = clips[candidateInsertIndex % clips.length];
 		if (textToInsert != null) {
 			IEditorPart activeEditor = activeWorkbenchWindow.getActivePage().getActiveEditor();
 			if (activeEditor instanceof AbstractDecoratedTextEditor) {
@@ -38,7 +58,7 @@ public class ClipsPasteCommmand implements IHandler {
 						}
 						int caretOffset = styledText.getCaretOffset();
 						styledText.insert(textToInsert);
-						styledText.setCaretOffset(caretOffset + textToInsert.length());
+	                    styledText.setSelection(caretOffset + textToInsert.length(), caretOffset);
 					}
 				}
 			}
