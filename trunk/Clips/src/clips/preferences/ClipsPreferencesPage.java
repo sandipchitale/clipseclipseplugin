@@ -33,7 +33,7 @@ public class ClipsPreferencesPage extends FieldEditorPreferencePage implements
         addField(booleanFieldEditor);
 
         IntegerFieldEditor integerFieldEditor = new IntegerFieldEditor(
-                Activator.MAX_CLIPS_COUNT, "Maximum number clips:",
+                Activator.MAX_CLIPS_COUNT, "Maximum number of clips:",
                 getFieldEditorParent());
         addField(integerFieldEditor);
     }
