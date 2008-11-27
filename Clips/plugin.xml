@@ -21,6 +21,7 @@
                icon="icons/removeall.gif"
                id="Clips.removeAllAction"
                label="Remove All"
+               menubarPath="additions"
                style="push"
                toolbarPath="additions"/>
          <action
@@ -29,6 +30,7 @@
                icon="icons/remove.gif"
                id="Clips.removeAction"
                label="Remove"
+               menubarPath="additions"
                style="push"
                toolbarPath="additions"/>
          <action
@@ -36,6 +38,7 @@
                icon="icons/rotatedown.gif"
                id="Clips.rotateDownAction"
                label="Rotate clips down"
+               menubarPath="additions"
                style="push"
                toolbarPath="additions"/>
          <action
@@ -43,6 +46,7 @@
                icon="icons/rotateup.gif"
                id="Clips.rotateUpAction"
                label="Rotate clips up"
+               menubarPath="additions"
                style="push"
                toolbarPath="additions"/>
          <action
@@ -50,6 +54,7 @@
                icon="icons/swap.gif"
                id="Clips.swapAction"
                label="Swap top two clips"
+               menubarPath="additions"
                style="push"
                toolbarPath="additions"/>
          <action
@@ -57,6 +62,7 @@
                icon="icons/paste.gif"
                id="Clips.pasteAction"
                label="Paste"
+               menubarPath="additions"
                style="push"
                toolbarPath="additions"/>
       </viewContribution>
