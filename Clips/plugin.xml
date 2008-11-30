@@ -57,6 +57,15 @@
                menubarPath="additions"
                style="push"
                toolbarPath="additions"/>
+         <!-- action
+               class="clips.views.EditAction"
+               enablesFor="1"
+               icon="icons/text.gif"
+               id="Clips.editAction"
+               label="Edit"
+               menubarPath="additions"
+               style="push"
+               toolbarPath="additions"/ -->
          <action
                class="clips.views.PasteAction"
                icon="icons/paste.gif"
