@@ -166,11 +166,22 @@ public class ClipsModel implements IStructuredContentProvider,
         }
     }
 
-    public void swap() {
-        if (clips.size() > 1) {
-            Collections.swap(clips, 0, 1);
+    public boolean moveUp(int i) {
+        if (i > 0 && i < clips.size()) {
+            Collections.swap(clips, i, i-1);
             fireChange();
+            return true;
         }
+        return false;
+    }
+    
+    public boolean moveDown(int i) {
+        if (i >= 0 && i < (clips.size() - 1)) {
+            Collections.swap(clips, i, i+1);
+            fireChange();
+            return true;
+        }
+        return false;
     }
 
     private void push(String selection) {

@@ -2,16 +2,6 @@
 <?eclipse version="3.2"?>
 <plugin>
    <extension
-         id="clips.ClipsViews"
-         name="Clips"
-         point="org.eclipse.ui.views">
-      <view
-            class="clips.views.ClipsView"
-            icon="icons/clips.gif"
-            id="clips.view.Clips"
-            name="Clips"/>
-   </extension>
-   <extension
          point="org.eclipse.ui.viewActions">
       <viewContribution
             id="Clips.viewContribution"
@@ -34,6 +24,24 @@
                style="push"
                toolbarPath="additions"/>
          <action
+               class="clips.views.MoveDownAction"
+               enablesFor="1"
+               icon="icons/movedown.gif"
+               id="Clips.moveDownAction"
+               label="Move clip down"
+               menubarPath="additions"
+               style="push"
+               toolbarPath="additions"/>
+         <action
+               class="clips.views.MoveUpAction"
+               enablesFor="1"
+               icon="icons/moveup.gif"
+               id="Clips.moveUpAction"
+               label="Move clip up"
+               menubarPath="additions"
+               style="push"
+               toolbarPath="additions"/>
+         <action
                class="clips.views.RotateDownAction"
                icon="icons/rotatedown.gif"
                id="Clips.rotateDownAction"
@@ -46,14 +54,6 @@
                icon="icons/rotateup.gif"
                id="Clips.rotateUpAction"
                label="Rotate clips up"
-               menubarPath="additions"
-               style="push"
-               toolbarPath="additions"/>
-         <action
-               class="clips.views.SwapAction"
-               icon="icons/swap.gif"
-               id="Clips.swapAction"
-               label="Swap top two clips"
                menubarPath="additions"
                style="push"
                toolbarPath="additions"/>
@@ -119,11 +119,6 @@
             defaultHandler="clips.model.RotateDownCommmand"
             id="Clips.rotateDownCommand"
             name="Rotate down clips"/>
-      <command
-            categoryId="Clips.category"
-            defaultHandler="clips.model.SwapCommmand"
-            id="Clips.swapCommand"
-            name="Swap first two clips"/>
    </extension>
    <extension
          id="Clips.bindings"
@@ -155,17 +150,12 @@
             commandId="Clips.rotateUpCommand"
             contextId="org.eclipse.ui.contexts.window"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-            sequence="M2+M3+X M2+M3+9"/>
+            sequence="M2+M3+X M2+M3+UP"/>
       <key
             commandId="Clips.rotateDownCommand"
             contextId="org.eclipse.ui.contexts.window"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-            sequence="M2+M3+X M2+M3+0"/>
-      <key
-            commandId="Clips.swapCommand"
-            contextId="org.eclipse.ui.contexts.window"
-            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-            sequence="M2+M3+X M2+M3+6"/>
+            sequence="M2+M3+X M2+M3+DOWN"/>
    </extension>
    <extension
          point="org.eclipse.ui.preferencePages">
