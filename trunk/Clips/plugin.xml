@@ -2,6 +2,16 @@
 <?eclipse version="3.2"?>
 <plugin>
    <extension
+         id="clips.ClipsViews"
+         name="Clips"
+         point="org.eclipse.ui.views">
+      <view
+            class="clips.views.ClipsView"
+            icon="icons/clips.gif"
+            id="clips.view.Clips"
+            name="Clips"/>
+   </extension>
+   <extension
          point="org.eclipse.ui.viewActions">
       <viewContribution
             id="Clips.viewContribution"
@@ -150,12 +160,12 @@
             commandId="Clips.rotateUpCommand"
             contextId="org.eclipse.ui.contexts.window"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-            sequence="M2+M3+X M2+M3+UP"/>
+            sequence="M2+M3+X M2+M3+9"/>
       <key
             commandId="Clips.rotateDownCommand"
             contextId="org.eclipse.ui.contexts.window"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-            sequence="M2+M3+X M2+M3+DOWN"/>
+            sequence="M2+M3+X M2+M3+0"/>
    </extension>
    <extension
          point="org.eclipse.ui.preferencePages">
