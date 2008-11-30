@@ -1,5 +1,7 @@
 package clips.views;
 
+import java.util.Iterator;
+
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionProvider;
@@ -24,6 +26,7 @@ public class PasteAction implements IViewActionDelegate {
         this.view = (ClipsView) view;
     }
 
+    @SuppressWarnings("unchecked")
     public void run(IAction action) {
         ISelectionProvider selectionProvider = view.getViewSite()
                 .getSelectionProvider();
@@ -33,7 +36,12 @@ public class PasteAction implements IViewActionDelegate {
             if (selection instanceof IStructuredSelection
                     && ((IStructuredSelection) selection).size() > 0) {
                 IStructuredSelection structuredSelection = (IStructuredSelection) selection;
-                textToInsert = (String) structuredSelection.getFirstElement();
+                StringBuilder stringBuilder = new StringBuilder();
+                Iterator iterator = structuredSelection.iterator();
+                while (iterator.hasNext()) {
+                    stringBuilder.append((String) iterator.next());
+                }
+                textToInsert = stringBuilder.toString();
             } else {
                 textToInsert = ClipsModel.getINSTANCE().peek();
             }
