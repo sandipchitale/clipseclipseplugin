@@ -1,8 +1,7 @@
 package clips.views;
 
 import org.eclipse.jface.action.IAction;
-import org.eclipse.jface.dialogs.IDialogConstants;
-import org.eclipse.jface.dialogs.InputDialog;
+import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITreeSelection;
@@ -10,12 +9,16 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.Tree;
+import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.ui.IViewActionDelegate;
 import org.eclipse.ui.IViewPart;
+
+import clips.model.ClipsModel;
 
 public class EditAction implements IViewActionDelegate {
 
@@ -25,6 +28,47 @@ public class EditAction implements IViewActionDelegate {
         this.view = (ClipsView) view;
     }
 
+    private static class ClipDialog extends Dialog {
+
+        private String clipText;
+        private Text text;
+
+        private ClipDialog(Shell shell, String clipText) {
+            super(shell);
+            setShellStyle(SWT.CLOSE | SWT.BORDER | SWT.TITLE | SWT.RESIZE);
+            shell.setText("Edit Clip");
+            if (clipText == null) {
+                this.clipText = "";
+            } else {
+                this.clipText = clipText;
+            }
+        }
+        
+        @Override
+        protected Control createDialogArea(Composite parent) {
+            Composite composite = (Composite) super.createDialogArea(parent);
+            text = new Text(composite, SWT.MULTI | SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL);
+            text.setText(clipText);
+            GridData layoutData = new GridData(GridData.FILL_BOTH);
+            layoutData.widthHint = 350;
+            layoutData.heightHint = 200;
+            text.setLayoutData(layoutData);
+            clipText = null;
+            return composite;
+        }
+        
+        @Override
+        protected void okPressed() {
+            clipText = text.getText();
+            super.okPressed();
+        }
+        
+        String getText() {
+            return clipText;
+        }
+        
+    }
+    
     public void run(IAction action) {
         TreeViewer viewer = view.getViewer();
         ISelection selection = viewer.getSelection();
@@ -32,47 +76,20 @@ public class EditAction implements IViewActionDelegate {
             IStructuredSelection structuredSelection = (ITreeSelection) selection;
             Object firstElement = structuredSelection.getFirstElement();
             if (firstElement instanceof String) {
-                InputDialog inputDialog = new InputDialog(view.getViewSite().getShell()
-                        ,"Edit clip"
-                        ,"Edit clips:"
-                        ,(String) firstElement
-                        ,null) {
-                    private Text text;
-                    
-                    @Override
-                    protected Control createDialogArea(Composite parent) {
-                        Composite composite = new Composite(parent, SWT.NONE);
-                        GridLayout layout = new GridLayout();
-                        layout.marginHeight = convertVerticalDLUsToPixels(IDialogConstants.VERTICAL_MARGIN);
-                        layout.marginWidth = convertHorizontalDLUsToPixels(IDialogConstants.HORIZONTAL_MARGIN);
-                        layout.verticalSpacing = convertVerticalDLUsToPixels(IDialogConstants.VERTICAL_SPACING);
-                        layout.horizontalSpacing = convertHorizontalDLUsToPixels(IDialogConstants.HORIZONTAL_SPACING);
-                        composite.setLayout(layout);
-                        composite.setLayoutData(new GridData(GridData.FILL_BOTH));
-                        text = new Text(composite, SWT.MULTI | SWT.BORDER);
-                        GridData layoutData = new GridData(SWT.FILL, SWT.FILL, true, true);
-                        layoutData.widthHint = 400;
-                        layoutData.heightHint = 300;
-                        text.setLayoutData(layoutData);
-                        applyDialogFont(composite);
-                        return composite;
-                    }
-                    
-                    @Override
-                    public String getValue() {
-                        return text.getText();
-                    }
-                    
-                };
-                
-                if (inputDialog.open() == Window.OK) {
-                    
-                }
+                ClipDialog dialog = new ClipDialog(view.getViewSite().getShell(), (String) firstElement);
+                if (dialog.open() == Window.OK) {
+                    Tree tree = viewer.getTree();
+                    TreeItem item = tree.getSelection()[0];
+                    int indexOf = tree.indexOf(item);
+                    ClipsModel.getINSTANCE().replace(indexOf, dialog.getText());
+                }                
             }
         }
     }
 
     public void selectionChanged(IAction action, ISelection selection) {
+        action.setEnabled(selection instanceof IStructuredSelection &&
+                ((IStructuredSelection)selection).size() == 1);
     }
 
 }

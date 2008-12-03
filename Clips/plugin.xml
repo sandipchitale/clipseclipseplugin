@@ -67,15 +67,15 @@
                menubarPath="additions"
                style="push"
                toolbarPath="additions"/>
-         <!-- action
+         <action
                class="clips.views.EditAction"
                enablesFor="1"
-               icon="icons/text.gif"
+               icon="icons/edit.gif"
                id="Clips.editAction"
                label="Edit"
                menubarPath="additions"
                style="push"
-               toolbarPath="additions"/ -->
+               toolbarPath="additions"/>
          <action
                class="clips.views.PasteAction"
                icon="icons/paste.gif"
