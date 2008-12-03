@@ -34,6 +34,15 @@
                style="push"
                toolbarPath="additions"/>
          <action
+               class="clips.views.EditAction"
+               enablesFor="1"
+               icon="icons/edit.gif"
+               id="Clips.editAction"
+               label="Edit"
+               menubarPath="additions"
+               style="push"
+               toolbarPath="additions"/>
+         <action
                class="clips.views.MoveDownAction"
                enablesFor="1"
                icon="icons/movedown.gif"
@@ -64,15 +73,6 @@
                icon="icons/rotateup.gif"
                id="Clips.rotateUpAction"
                label="Rotate clips up"
-               menubarPath="additions"
-               style="push"
-               toolbarPath="additions"/>
-         <action
-               class="clips.views.EditAction"
-               enablesFor="1"
-               icon="icons/edit.gif"
-               id="Clips.editAction"
-               label="Edit"
                menubarPath="additions"
                style="push"
                toolbarPath="additions"/>
