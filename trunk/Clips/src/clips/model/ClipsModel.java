@@ -183,6 +183,12 @@ public class ClipsModel implements IStructuredContentProvider,
         }
         return false;
     }
+    
+    public void replace(int index, String selection) {
+        if (remove(index) != null) {
+            insert(index, selection);
+        }
+    }
 
     private void push(String selection) {
         insert(0, selection);
