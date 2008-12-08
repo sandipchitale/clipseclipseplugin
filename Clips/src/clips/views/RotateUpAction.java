@@ -15,7 +15,10 @@ import clips.model.ClipsModel;
  */
 public class RotateUpAction implements IViewActionDelegate {
 
-    public void init(IViewPart view) {
+    private ClipsView view;
+
+	public void init(IViewPart view) {
+		this.view = (ClipsView) view;
     }
 
     public void run(IAction action) {
@@ -23,7 +26,8 @@ public class RotateUpAction implements IViewActionDelegate {
     }
 
     public void selectionChanged(IAction action, ISelection selection) {
-        action.setEnabled(ClipsModel.getINSTANCE().get().length > 1);
+        action.setEnabled(view.getViewer().getTree().getItemCount() == ClipsModel.getINSTANCE().get().length &&
+        		ClipsModel.getINSTANCE().get().length > 1);
     }
 
 }

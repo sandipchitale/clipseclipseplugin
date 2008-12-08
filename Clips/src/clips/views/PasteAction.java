@@ -6,6 +6,7 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.ui.IViewActionDelegate;
 import org.eclipse.ui.IViewPart;
 
@@ -21,6 +22,9 @@ import clips.model.ClipsModel;
 public class PasteAction implements IViewActionDelegate {
 
     private ClipsView view;
+    
+    private int candidateInsertIndex = 0;
+    private long lastPasteTimeInMillis = -1L;
 
     public void init(IViewPart view) {
         this.view = (ClipsView) view;
@@ -43,7 +47,23 @@ public class PasteAction implements IViewActionDelegate {
                 }
                 textToInsert = stringBuilder.toString();
             } else {
-                textToInsert = ClipsModel.getINSTANCE().peek();
+            	TreeItem[] items = view.getViewer().getTree().getItems();
+                if (items.length == 0) {
+                    return;
+                }
+            	String[] clips = new String[items.length];
+            	for (int i = 0; i < items.length; i++) {
+            		clips[i] = items[i].getText();
+            	}
+                long currentTimeMillis = System.currentTimeMillis();
+                if ((lastPasteTimeInMillis == -1)
+                        || (currentTimeMillis - lastPasteTimeInMillis) > 1000L) {
+                    candidateInsertIndex = 0;
+                } else {
+                    candidateInsertIndex++;
+                }
+                lastPasteTimeInMillis = currentTimeMillis;
+                textToInsert = clips[candidateInsertIndex % clips.length];
             }
             if (textToInsert != null) {
                 view.insertSelection(textToInsert);
@@ -53,12 +73,12 @@ public class PasteAction implements IViewActionDelegate {
 
     public void selectionChanged(IAction action, ISelection selection) {
         action.setEnabled(false);
-        if ((ClipsModel.getINSTANCE().get().length > 0)
-                || (selection instanceof IStructuredSelection && ((IStructuredSelection) selection)
-                        .size() > 0)) {
-            action.setEnabled(true);
-            return;
-        }
+		if ((ClipsModel.getINSTANCE().get().length > 0)
+				|| (selection instanceof IStructuredSelection && ((IStructuredSelection) selection)
+						.size() > 0)) {
+			action.setEnabled(true);
+			return;
+		}
     }
 
 }

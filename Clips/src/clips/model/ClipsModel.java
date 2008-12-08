@@ -6,7 +6,8 @@ package clips.model;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.Set;
+import java.util.concurrent.CopyOnWriteArraySet;
 
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -30,7 +31,7 @@ import clips.Activator;
 public class ClipsModel implements IStructuredContentProvider,
         ITreeContentProvider {
 
-    private final List<ChangeListener> listners = new CopyOnWriteArrayList<ChangeListener>();
+    private final Set<ChangeListener> listners = new CopyOnWriteArraySet<ChangeListener>();
 
     public void addChangeListener(ChangeListener changeListener) {
         listners.add(changeListener);
