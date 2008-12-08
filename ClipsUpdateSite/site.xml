@@ -3,7 +3,7 @@
    <description url="http://clipseclipseplugin.googlecode.com/svn/trunk/ClipsUpdateSite/">
       Clips feature
    </description>
-   <feature url="features/ClipsFeature_1.0.1.jar" id="ClipsFeature" version="1.0.1">
+   <feature url="features/ClipsFeature_1.0.2.jar" id="ClipsFeature" version="1.0.2">
       <category name="Clipboard"/>
    </feature>
    <category-def name="Clipboard" label="Clipboard"/>

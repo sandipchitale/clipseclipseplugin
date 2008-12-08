@@ -121,6 +121,11 @@
             name="Paste from clips"/>
       <command
             categoryId="Clips.category"
+            defaultHandler="clips.model.ClipsPasteFromPopupCommand"
+            id="Clips.pasteFromPopupCommand"
+            name="Paste clip from pop up"/>
+      <command
+            categoryId="Clips.category"
             defaultHandler="clips.model.RotateUpCommmand"
             id="Clips.rotateUpCommand"
             name="Rotate up clips"/>
@@ -156,6 +161,11 @@
             contextId="org.eclipse.ui.textEditorScope"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
             sequence="M2+M3+X M2+M3+V"/>
+      <key
+            commandId="Clips.pasteFromPopupCommand"
+            contextId="org.eclipse.ui.textEditorScope"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M2+M3+X M2+M3+P"/>
       <key
             commandId="Clips.rotateUpCommand"
             contextId="org.eclipse.ui.contexts.window"
