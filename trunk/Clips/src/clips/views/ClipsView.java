@@ -23,6 +23,8 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.dialogs.FilteredTree;
+import org.eclipse.ui.dialogs.PatternFilter;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.ui.texteditor.AbstractDecoratedTextEditor;
 
@@ -65,7 +67,15 @@ public class ClipsView extends ViewPart {
 
     @Override
     public void createPartControl(Composite parent) {
-        viewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
+    	FilteredTree filteredTree = new FilteredTree(parent, SWT.MULTI, new PatternFilter()) {
+    		@Override
+    		protected void updateToolbar(boolean visible) {
+    			ClipsView.this.getViewer().setSelection(ClipsView.this.getViewer().getSelection());
+    			super.updateToolbar(visible);
+    		}
+    	};
+//        viewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
+        viewer = filteredTree.getViewer();
         viewer.setContentProvider(ClipsModel.getINSTANCE());
         viewer.setLabelProvider(new ClipLabelProvider());
         viewer.setInput(getViewSite());

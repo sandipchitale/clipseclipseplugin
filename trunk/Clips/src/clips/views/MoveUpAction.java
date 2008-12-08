@@ -33,7 +33,8 @@ public class MoveUpAction implements IViewActionDelegate {
     }
 
     public void selectionChanged(IAction action, ISelection selection) {
-        action.setEnabled(selection instanceof IStructuredSelection &&
+        action.setEnabled(view.getViewer().getTree().getItemCount() == ClipsModel.getINSTANCE().get().length &&
+        		selection instanceof IStructuredSelection &&
                 ((IStructuredSelection)selection).size() == 1);
     }
 }
