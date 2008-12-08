@@ -1,6 +1,5 @@
 package clips.views;
 
-import java.util.regex.Pattern;
 
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -11,11 +10,9 @@ import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ITreeSelection;
-import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyledText;
-import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Menu;
@@ -28,7 +25,6 @@ import org.eclipse.ui.dialogs.PatternFilter;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.ui.texteditor.AbstractDecoratedTextEditor;
 
-import clips.Activator;
 import clips.model.ClipsModel;
 
 /**
@@ -137,30 +133,6 @@ public class ClipsView extends ViewPart {
     @Override
     public void setFocus() {
         viewer.getControl().setFocus();
-    }
-
-    class ClipLabelProvider extends LabelProvider {
-        @Override
-        public String getText(Object element) {
-            if (element instanceof String) {
-                String text = (String) element;
-                if (text == null) {
-                    return "";
-                }
-                int textLength = text.length();
-                return text.replaceAll(Pattern.quote("\n"), "\u00B6")
-                        .substring(0, Math.min(text.length(), 120))
-                        + (textLength < 120 ? "" : "...");
-            }
-
-            return super.getText(element);
-        }
-
-        @Override
-        public Image getImage(Object element) {
-            return Activator.getDefault().getImageRegistry()
-                    .get(Activator.TEXT);
-        }
     }
 
 }
