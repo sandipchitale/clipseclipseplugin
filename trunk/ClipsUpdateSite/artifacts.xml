@@ -1,97 +1,16 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?artifactRepository class='org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository' version='1.0.0'?>
-<repository name='file:/home/schitale/professional/eclipse/workspace/ClipsUpdateSite/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
+<repository name='file:/home/schitale/professional/eclipse/workspace/ClipsUpdateSite/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
   <properties size='2'>
     <property name='p2.compressed' value='false'/>
-    <property name='p2.timestamp' value='1230688979933'/>
+    <property name='p2.timestamp' value='1230689190582'/>
   </properties>
   <mappings size='3'>
     <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
     <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
     <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
   </mappings>
-  <artifacts size='30'>
-    <artifact classifier='osgi.bundle' id='Clips' version='1.0.9'>
-      <properties size='3'>
-        <property name='artifact.size' value='31354'/>
-        <property name='download.size' value='31354'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='Clips' version='1.0.14'>
-      <properties size='3'>
-        <property name='artifact.size' value='35855'/>
-        <property name='download.size' value='35855'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='ClipsFeature' version='1.0.1'>
-      <properties size='2'>
-        <property name='artifact.size' value='685'/>
-        <property name='download.size' value='685'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='Clips' version='1.0.12'>
-      <properties size='3'>
-        <property name='artifact.size' value='32565'/>
-        <property name='download.size' value='32565'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='Clips' version='1.0.13'>
-      <properties size='3'>
-        <property name='artifact.size' value='32566'/>
-        <property name='download.size' value='32566'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='Clips' version='1.0.12'>
-      <properties size='3'>
-        <property name='artifact.size' value='31548'/>
-        <property name='download.size' value='31548'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='Clips' version='1.0.7'>
-      <properties size='3'>
-        <property name='artifact.size' value='31113'/>
-        <property name='download.size' value='31113'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='Clips' version='1.0.16'>
-      <properties size='3'>
-        <property name='artifact.size' value='36192'/>
-        <property name='download.size' value='36192'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='Clips' version='1.0.18'>
-      <properties size='3'>
-        <property name='artifact.size' value='40189'/>
-        <property name='download.size' value='40189'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='Clips' version='1.0.14'>
-      <properties size='3'>
-        <property name='artifact.size' value='35484'/>
-        <property name='download.size' value='35484'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='ClipsFeature' version='1.0.0'>
-      <properties size='2'>
-        <property name='artifact.size' value='699'/>
-        <property name='download.size' value='699'/>
-      </properties>
-    </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='ClipsFeature' version='1.0.2'>
-      <properties size='2'>
-        <property name='artifact.size' value='686'/>
-        <property name='download.size' value='686'/>
-      </properties>
-    </artifact>
+  <artifacts size='2'>
     <artifact classifier='osgi.bundle' id='Clips' version='1.0.19'>
       <properties size='3'>
         <property name='artifact.size' value='40133'/>
@@ -99,119 +18,10 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='Clips' version='1.0.11'>
-      <properties size='3'>
-        <property name='artifact.size' value='31533'/>
-        <property name='download.size' value='31533'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='Clips' version='1.0.10'>
-      <properties size='3'>
-        <property name='artifact.size' value='31354'/>
-        <property name='download.size' value='31354'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='Clips' version='1.0.6'>
-      <properties size='3'>
-        <property name='artifact.size' value='28115'/>
-        <property name='download.size' value='28115'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='Clips' version='1.0.5'>
-      <properties size='3'>
-        <property name='artifact.size' value='27196'/>
-        <property name='download.size' value='27196'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='Clips' version='1.0.13'>
-      <properties size='3'>
-        <property name='artifact.size' value='34091'/>
-        <property name='download.size' value='34091'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='ClipsFeature' version='1.0.0'>
-      <properties size='2'>
-        <property name='artifact.size' value='700'/>
-        <property name='download.size' value='700'/>
-      </properties>
-    </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='ClipsFeature' version='1.0.0'>
+    <artifact classifier='org.eclipse.update.feature' id='ClipsFeature' version='1.0.2'>
       <properties size='2'>
         <property name='artifact.size' value='686'/>
         <property name='download.size' value='686'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='Clips' version='1.0.13'>
-      <properties size='3'>
-        <property name='artifact.size' value='33957'/>
-        <property name='download.size' value='33957'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='ClipsFeature' version='1.0.0'>
-      <properties size='2'>
-        <property name='artifact.size' value='683'/>
-        <property name='download.size' value='683'/>
-      </properties>
-    </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='ClipsFeature' version='1.0.0'>
-      <properties size='2'>
-        <property name='artifact.size' value='685'/>
-        <property name='download.size' value='685'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='Clips' version='1.0.17'>
-      <properties size='3'>
-        <property name='artifact.size' value='38079'/>
-        <property name='download.size' value='38079'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='Clips' version='1.0.14'>
-      <properties size='3'>
-        <property name='artifact.size' value='35520'/>
-        <property name='download.size' value='35520'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='Clips' version='1.0.14'>
-      <properties size='3'>
-        <property name='artifact.size' value='35487'/>
-        <property name='download.size' value='35487'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='Clips' version='1.0.4'>
-      <properties size='3'>
-        <property name='artifact.size' value='27159'/>
-        <property name='download.size' value='27159'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='Clips' version='1.0.15'>
-      <properties size='3'>
-        <property name='artifact.size' value='36192'/>
-        <property name='download.size' value='36192'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='Clips' version='1.0.8'>
-      <properties size='3'>
-        <property name='artifact.size' value='31112'/>
-        <property name='download.size' value='31112'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='Clips' version='1.0.9'>
-      <properties size='3'>
-        <property name='artifact.size' value='31110'/>
-        <property name='download.size' value='31110'/>
-        <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
   </artifacts>
