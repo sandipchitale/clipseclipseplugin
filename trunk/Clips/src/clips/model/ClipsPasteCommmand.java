@@ -9,7 +9,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.texteditor.AbstractDecoratedTextEditor;
+import org.eclipse.ui.texteditor.ITextEditor;
 
 /**
  * This command pastes the clips into the active text editor. The pasted text is
@@ -54,8 +54,8 @@ public class ClipsPasteCommmand implements IHandler {
         if (textToInsert != null) {
             IEditorPart activeEditor = activeWorkbenchWindow.getActivePage()
                     .getActiveEditor();
-            if (activeEditor instanceof AbstractDecoratedTextEditor) {
-                AbstractDecoratedTextEditor editor = (AbstractDecoratedTextEditor) activeEditor;
+            if (activeEditor instanceof ITextEditor) {
+            	ITextEditor editor = (ITextEditor) activeEditor;
                 Object adapter = (Control) editor.getAdapter(Control.class);
                 if (adapter instanceof Control) {
                     Control control = (Control) adapter;
@@ -85,8 +85,8 @@ public class ClipsPasteCommmand implements IHandler {
         }
         IEditorPart activeEditor = activeWorkbenchWindow.getActivePage()
                 .getActiveEditor();
-        if (activeEditor instanceof AbstractDecoratedTextEditor) {
-            AbstractDecoratedTextEditor editor = (AbstractDecoratedTextEditor) activeEditor;
+        if (activeEditor instanceof ITextEditor) {
+        	ITextEditor editor = (ITextEditor) activeEditor;
             Object adapter = (Control) editor.getAdapter(Control.class);
             if (adapter instanceof Control) {
                 return ClipsModel.getINSTANCE().get().length > 0;

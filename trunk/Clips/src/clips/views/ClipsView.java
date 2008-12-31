@@ -23,7 +23,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.dialogs.FilteredTree;
 import org.eclipse.ui.dialogs.PatternFilter;
 import org.eclipse.ui.part.ViewPart;
-import org.eclipse.ui.texteditor.AbstractDecoratedTextEditor;
+import org.eclipse.ui.texteditor.ITextEditor;
 
 import clips.model.ClipsModel;
 
@@ -106,8 +106,8 @@ public class ClipsView extends ViewPart {
     void insertSelection(String text) {
         IEditorPart activeEditor = getViewSite().getWorkbenchWindow()
                 .getActivePage().getActiveEditor();
-        if (activeEditor instanceof AbstractDecoratedTextEditor) {
-            AbstractDecoratedTextEditor editor = (AbstractDecoratedTextEditor) activeEditor;
+        if (activeEditor instanceof ITextEditor) {
+        	ITextEditor editor = (ITextEditor) activeEditor;
             Object adapter = (Control) editor.getAdapter(Control.class);
             if (adapter instanceof Control) {
                 Control control = (Control) adapter;
