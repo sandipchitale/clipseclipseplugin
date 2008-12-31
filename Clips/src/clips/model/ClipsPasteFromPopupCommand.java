@@ -12,7 +12,7 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ListDialog;
-import org.eclipse.ui.texteditor.AbstractDecoratedTextEditor;
+import org.eclipse.ui.texteditor.ITextEditor;
 
 import clips.views.ClipLabelProvider;
 
@@ -38,8 +38,8 @@ public class ClipsPasteFromPopupCommand implements IHandler {
 
 		IEditorPart activeEditor = activeWorkbenchWindow.getActivePage()
 				.getActiveEditor();
-		if (activeEditor instanceof AbstractDecoratedTextEditor) {
-			AbstractDecoratedTextEditor editor = (AbstractDecoratedTextEditor) activeEditor;
+		if (activeEditor instanceof ITextEditor) {
+			ITextEditor editor = (ITextEditor) activeEditor;
 			Object adapter = (Control) editor.getAdapter(Control.class);
 			if (adapter instanceof Control) {
 				Control control = (Control) adapter;
@@ -86,8 +86,8 @@ public class ClipsPasteFromPopupCommand implements IHandler {
 		}
 		IEditorPart activeEditor = activeWorkbenchWindow.getActivePage()
 				.getActiveEditor();
-		if (activeEditor instanceof AbstractDecoratedTextEditor) {
-			AbstractDecoratedTextEditor editor = (AbstractDecoratedTextEditor) activeEditor;
+		if (activeEditor instanceof ITextEditor) {
+			ITextEditor editor = (ITextEditor) activeEditor;
 			Object adapter = (Control) editor.getAdapter(Control.class);
 			if (adapter instanceof Control) {
 				return ClipsModel.getINSTANCE().get().length > 0;

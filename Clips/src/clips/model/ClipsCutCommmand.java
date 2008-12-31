@@ -11,7 +11,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.texteditor.AbstractDecoratedTextEditor;
+import org.eclipse.ui.texteditor.ITextEditor;
 
 /**
  * This command cuts the text selected in the active IDE text editor to
@@ -36,8 +36,8 @@ public class ClipsCutCommmand implements IHandler {
         }
         IEditorPart activeEditor = activeWorkbenchWindow.getActivePage()
                 .getActiveEditor();
-        if (activeEditor instanceof AbstractDecoratedTextEditor) {
-            AbstractDecoratedTextEditor editor = (AbstractDecoratedTextEditor) activeEditor;
+        if (activeEditor instanceof ITextEditor) {
+        	ITextEditor editor = (ITextEditor) activeEditor;
             Object adapter = (Control) editor.getAdapter(Control.class);
             if (adapter instanceof Control) {
                 Control control = (Control) adapter;
@@ -72,8 +72,8 @@ public class ClipsCutCommmand implements IHandler {
         }
         IEditorPart activeEditor = activeWorkbenchWindow.getActivePage()
                 .getActiveEditor();
-        if (activeEditor instanceof AbstractDecoratedTextEditor) {
-            AbstractDecoratedTextEditor editor = (AbstractDecoratedTextEditor) activeEditor;
+        if (activeEditor instanceof ITextEditor) {
+        	ITextEditor editor = (ITextEditor) activeEditor;
             Object adapter = (Control) editor.getAdapter(Control.class);
             if (adapter instanceof Control) {
                 return true;
