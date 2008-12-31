@@ -3,7 +3,7 @@
 <repository name='file:/home/schitale/professional/eclipse/workspace/ClipsUpdateSite/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
   <properties size='2'>
     <property name='p2.compressed' value='false'/>
-    <property name='p2.timestamp' value='1230688771000'/>
+    <property name='p2.timestamp' value='1230688979933'/>
   </properties>
   <mappings size='3'>
     <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
