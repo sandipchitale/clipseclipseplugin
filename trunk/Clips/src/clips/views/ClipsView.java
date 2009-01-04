@@ -9,13 +9,19 @@ import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITreeSelection;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyledText;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.IWorkbenchActionConstants;
@@ -63,15 +69,21 @@ public class ClipsView extends ViewPart {
 
     @Override
     public void createPartControl(Composite parent) {
-    	FilteredTree filteredTree = new FilteredTree(parent, SWT.MULTI, new PatternFilter()) {
+    	GridLayout layout = new GridLayout(1, false);
+		parent.setLayout(layout);
+    	FilteredTree filteredTree = new FilteredTree(parent, SWT.MULTI | SWT.V_SCROLL, new PatternFilter()) {
     		@Override
     		protected void updateToolbar(boolean visible) {
     			ClipsView.this.getViewer().setSelection(ClipsView.this.getViewer().getSelection());
     			super.updateToolbar(visible);
     		}
     	};
-//        viewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
+    	
+    	GridData viewergridData = new GridData(GridData.FILL_BOTH);
+    	filteredTree.setLayoutData(viewergridData);
+
         viewer = filteredTree.getViewer();
+		
         viewer.setContentProvider(ClipsModel.getINSTANCE());
         viewer.setLabelProvider(new ClipLabelProvider());
         viewer.setInput(getViewSite());
@@ -101,6 +113,25 @@ public class ClipsView extends ViewPart {
                 }
             }
         });
+        
+        final Text text = new Text(parent, SWT.MULTI | SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL | SWT.READ_ONLY);
+		GridData gridData = new GridData(GridData.FILL_BOTH);
+		gridData.heightHint = 60;
+		text.setLayoutData(gridData);
+		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
+			public void selectionChanged(
+					SelectionChangedEvent event) {
+				ISelection selection = event.getSelection();
+				if (selection instanceof IStructuredSelection) {
+					IStructuredSelection structuredSelection = (IStructuredSelection) selection;
+					if (structuredSelection.size() > 0) {
+						text.setText(structuredSelection.getFirstElement().toString());
+						return;
+					}
+				}
+				text.setText("");
+			}
+		});
     }
 
     void insertSelection(String text) {
