@@ -7,7 +7,7 @@
          point="org.eclipse.ui.views">
       <view
             class="clips.views.ClipsView"
-            icon="icons/clips.gif"
+            icon="icons/clips.png"
             id="clips.view.Clips"
             name="Clips"/>
    </extension>
@@ -36,7 +36,7 @@
          <action
                class="clips.views.EditAction"
                enablesFor="1"
-               icon="icons/edit.gif"
+               icon="icons/edit.png"
                id="Clips.editAction"
                label="Edit"
                menubarPath="additions"

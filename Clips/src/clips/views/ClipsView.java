@@ -71,7 +71,7 @@ public class ClipsView extends ViewPart {
     public void createPartControl(Composite parent) {
     	GridLayout layout = new GridLayout(1, false);
 		parent.setLayout(layout);
-    	FilteredTree filteredTree = new FilteredTree(parent, SWT.MULTI | SWT.V_SCROLL, new PatternFilter()) {
+    	FilteredTree filteredTree = new FilteredTree(parent, SWT.MULTI | SWT.V_SCROLL, new PatternFilter(), true) {
     		@Override
     		protected void updateToolbar(boolean visible) {
     			ClipsView.this.getViewer().setSelection(ClipsView.this.getViewer().getSelection());

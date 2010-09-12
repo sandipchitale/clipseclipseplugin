@@ -17,7 +17,7 @@ public class Activator extends AbstractUIPlugin {
     // The plug-in ID
     public static final String PLUGIN_ID = "Clips";
 
-    public static final String TEXT = "icons/text.gif";
+    public static final String TEXT = "icons/clip.png";
 
     public static final String AUTO_CLIP_CUT_COPY = "autoClipCutAndCopy";
     public static final String MAX_CLIPS_COUNT = "maxClips";
