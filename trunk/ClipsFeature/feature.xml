@@ -2,7 +2,7 @@
 <feature
       id="ClipsFeature"
       label="Clips Feature Feature"
-      version="1.0.2"
+      version="1.0.21"
       provider-name="Sandip Chitale">
 
    <description url="http://code.google.com/p/clipseclipseplugin/">
