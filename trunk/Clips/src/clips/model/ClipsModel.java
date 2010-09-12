@@ -15,10 +15,6 @@ import javax.swing.event.ChangeListener;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.swt.dnd.Clipboard;
-import org.eclipse.swt.dnd.TextTransfer;
-import org.eclipse.swt.dnd.Transfer;
-import org.eclipse.ui.PlatformUI;
 
 import clips.Activator;
 
@@ -224,7 +220,6 @@ public class ClipsModel implements IStructuredContentProvider,
 
         }
         clips.add((index == -1 ? clips.size() : index), selection);
-        copyToClipboard(selection);
         int maxClipsCount = Activator.getDefault().getMaxClipsCount();
         while (clips.size() > maxClipsCount) {
             clips.remove(maxClipsCount);
@@ -253,15 +248,6 @@ public class ClipsModel implements IStructuredContentProvider,
     @SuppressWarnings("unused")
     private void setMode(ClipsModel.Mode mode) {
         this.mode = mode;
-    }
-
-    private static void copyToClipboard(String string) {
-        // Get Clipboard
-        Clipboard clipboard = new Clipboard(PlatformUI.getWorkbench()
-                .getActiveWorkbenchWindow().getShell().getDisplay());
-        // Put the paths string into the Clipboard
-        clipboard.setContents(new Object[] { string },
-                new Transfer[] { TextTransfer.getInstance() });
     }
 
 }

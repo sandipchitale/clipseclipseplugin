@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Clips Plug-in
 Bundle-SymbolicName: Clips;singleton:=true
-Bundle-Version: 1.0.20
+Bundle-Version: 1.0.21
 Bundle-Activator: clips.Activator
 Bundle-Vendor: Sandip Chitale
 Bundle-LocalRequire-Bundle: org.eclipse.ui,
@@ -11,4 +11,6 @@ Eclipse-LazyStart: true
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.ui.editors,
- org.eclipse.jface.text
+ org.eclipse.jface.text,
+ org.eclipse.core.expressions;bundle-version="3.4.101"
+Bundle-ActivationPolicy: lazy
